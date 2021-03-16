@@ -1,4 +1,6 @@
 '''
+First Activity
+
 first_name = input("What is your first name?: ")
 second_name = input("What is your second name?: ")
 age = int(input("How old are you? "));
@@ -8,6 +10,8 @@ print(f"Your name is {first_name} {second_name}, you are {age} years old, and yo
 '''
 
 '''
+Second Activity
+
 def user_input():
     breakfast = input("What did you have for breakfast: ")
     dinner = input("What did you have for dinner: ")
@@ -23,6 +27,10 @@ menu = user_input()
 
 print("You had {} for breakfast, {} for dinner and {} for tea".format(menu[0], menu[1], menu[2]))
 
+'''
+
+'''
+Third Activity
 '''
 
 def is_section(num):
