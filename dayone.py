@@ -2,9 +2,10 @@
     A simple Python program which takes user input to output a grid from a given size.
 '''
 
-size = int(input("Please type in a number for the size of the grid: "))
-section = (size // 3) - 1
-height = section // 2
+from os import system
+
+section = 5
+height = 3
 str = ""
 
 '''
@@ -18,21 +19,19 @@ str = ""
 *   An empty str is used to make sure join method works properly.
 '''
 
+def cls():
+    system('clear')
 
 def printHorizontal():
-    line = ("-" * section, "|", "-" * section, "|", "-" * section)
-    
-    print(str.join(line))
+    i = 0
+    layout = [0,0,0,1,0,0,0,1,0,0,0]
 
-def printVertical():
-
-    line = (" " * section, "|", " " * section, "|", " " * section)
-    i = 1
-    print(str.join(line))
+    for item in layout:
+        if (item == 1):
+            print(str.join(("-" * section, "|", "-" * section, "|", "-" * section)))
+        else:
+            print(str.join((" " * section, "|", " " * section, "|", " " * section)))
     
-    while (i < height):
-        print(str.join(line))
-        i = i + 1
     
 '''
 *   Two functions are defined in this part which, when called, will output horizontal and 
@@ -53,12 +52,24 @@ def printVertical():
     it adds one to the i variable using i = i + 1, for example if height was 3 the loop would 
     continue twice before the condition is met.
 '''
+
+def drawGrid():
+    printHorizontal();
+
+def selection():
+    print("Navigate to your selection")
     
-printVertical()
-printHorizontal()
-printVertical()
-printHorizontal()
-printVertical()
+
+    
+
+def game():
+    box = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    drawGrid()
+    
+
+    
+
+game()
 
 '''
 *   This part uses the defined functions in order to print the grid to the terminal, first it
