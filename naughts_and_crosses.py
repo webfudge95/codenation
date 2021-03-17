@@ -10,14 +10,11 @@ def is_section(num):
 grid = range(1, 12)
 squares = [" "," "," "," "," "," "," "," "," "]
 
-start = True
-
 def clear():
     system("clear")
 
 vertical = "   {}   |   {}   |   {}   "
-horizontal = "-------|-------|-------"
-    
+horizontal = "-------|-------|-------"    
 
 def drawGrid():
     for item in grid:
@@ -82,21 +79,21 @@ def computerPlace():
             squares[compplace] = "o"
             check = False
 
-
 def userPlace():
     check = True
     while check == True:
         userplace = int(input("Choose a number between 1 and 9: ")) - 1
 
-        if userplace > 9 or userplace < :
+        if userplace > 9 or "-" in str(userplace):
             print("Please choose an appropriate number!")
-        elif squares[userplace] == " ":
-            squares[userplace] = "x"
-            check = False
         else:
-            clear()
-            drawGrid()
-            print("Spot Occupied!")
+            if squares[userplace] == " ":
+                squares[userplace] = "x"
+                check = False
+            else:
+                clear()
+                drawGrid()
+                print("Spot Occupied!")
 
 def game():
     win = False
