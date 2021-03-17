@@ -21,10 +21,16 @@ def drawGrid():
         if (is_section(item)) == True:
             print(horizontal)
         else:
-            if item == 2:
+            if item == 3:
+                print(vertical.format(1,2,3))
+            elif item == 2:
                 print(vertical.format(squares[0],squares[1],squares[2]))
+            elif item == 7:
+                print(vertical.format(4,5,6))
             elif item == 6:
                 print(vertical.format(squares[3],squares[4],squares[5]))
+            elif item == 11:
+                print(vertical.format(7,8,9))
             elif item == 10:
                 print(vertical.format(squares[6],squares[7],squares[8]))
             else:
@@ -50,6 +56,17 @@ def checkVertical():
         else:
             number = [x + 1 for x in number]
 
+def checkDiagonal():
+    for item in range (0, 3):
+        if squares[0] == "x" and squares[4] == "x" and squares[8] == "x":
+            return True
+        if squares[2] == "x" and squares[4] == "x" and squares[6] == "x":
+            return True
+        if squares[0] == "o" and squares[4] == "o" and squares[8] == "o":
+            return True
+        if squares[2] == "o" and squares[4] == "o" and squares[6] == "o":
+            return True
+
 def checkStalemale():
     if " " in squares:
         return False
@@ -59,13 +76,14 @@ def checkStalemale():
 def checkWin():
     check1 = checkHorzontal()
     check2 = checkVertical()
+    check3 = checkDiagonal()
 
     sm = checkStalemale()
     if sm == True:
-        print("No winners!")
+        print("\nNo winners!")
         exit()
 
-    if check1 == True or check2 == True:
+    if check1 == True or check2 == True or check3 == True:
         return True
     else:
         return False
@@ -82,7 +100,7 @@ def computerPlace():
 def userPlace():
     check = True
     while check == True:
-        userplace = int(input("Choose a number between 1 and 9: ")) - 1
+        userplace = int(input("\nChoose a number between 1 and 9: ")) - 1
 
         if userplace > 9 or "-" in str(userplace):
             print("Please choose an appropriate number!")
@@ -97,7 +115,8 @@ def userPlace():
 
 def game():
     win = False
-    print("Welcome to naughts and Crosses")
+    clear()
+    print("Welcome to naughts and Crosses\n")
     drawGrid()
     while win != True:
         userPlace()
@@ -106,9 +125,14 @@ def game():
         win = checkWin()
         if win != True:
             computerPlace()
+            clear()
             drawGrid()
             win = checkWin()
-    print("Winner")
+            if win == True:
+                winner = "Computer"
+        elif win == True:
+            winner = "Player"
+    print("\nWinner is {}".format(winner))
     exit()
 
 game()
