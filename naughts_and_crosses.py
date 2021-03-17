@@ -17,7 +17,7 @@ vertical = "   {}   |   {}   |   {}   "
 horizontal = "-------|-------|-------"    
 
 def drawGrid():
-    print("Simple Naughts and Crosses Game\n")
+    print("Simple Noughts and Crosses Game\n")
     for item in grid:
         if (is_section(item)) == True:
             print(horizontal)
