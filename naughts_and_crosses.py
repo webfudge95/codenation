@@ -17,6 +17,7 @@ vertical = "   {}   |   {}   |   {}   "
 horizontal = "-------|-------|-------"    
 
 def drawGrid():
+    print("Simple Naughts and Crosses Game\n")
     for item in grid:
         if (is_section(item)) == True:
             print(horizontal)
@@ -100,10 +101,19 @@ def computerPlace():
 def userPlace():
     check = True
     while check == True:
-        userplace = int(input("\nChoose a number between 1 and 9: ")) - 1
+        while True:
+            try:
+                userplace = int(input("\nChoose a number between 1 and 9: ")) - 1
+                break
+            except:
+                clear()
+                drawGrid()
+                print("\nPlease choose an appropriate number!")
 
         if userplace > 9 or "-" in str(userplace):
-            print("Please choose an appropriate number!")
+            clear()
+            drawGrid()
+            print("\nPlease choose an appropriate number!")
         else:
             if squares[userplace] == " ":
                 squares[userplace] = "x"
@@ -116,7 +126,6 @@ def userPlace():
 def game():
     win = False
     clear()
-    print("Welcome to naughts and Crosses\n")
     drawGrid()
     while win != True:
         userPlace()
