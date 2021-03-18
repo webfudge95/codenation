@@ -1,15 +1,14 @@
 '''
-A simple equasion to find prime numbers
+A simple equasion to find prime numbers to a given value
 '''
-
-
-id = 1
 
 def is_prime(num):
     for i in range(2, num):
-        if (num % i) == 0 and i != num:
+        if (num % i) == 0:
             return False
     return True
+
+id = 1
 
 while id < 101:
     if is_prime(id) or id == 1:
