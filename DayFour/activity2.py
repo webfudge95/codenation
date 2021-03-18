@@ -4,8 +4,16 @@ Example of a for loop
 
 films = ["Lord of the rings", "Ghostbusters", "Back to the future", "The Hobbit"]
 
-for film in films:
+def check_film(film):
     if film.lower() == "ghostbusters":
-        print("Yay, Ghostbusters!")
+        return True
     else:
-        print("Boo! We want Ghostbusters")
+        return False
+
+for film in films:
+    if check_film(film) == True and film == films[2]:
+        print("Yay! GhostBusters")
+    elif check_film(film) == True and film != films[2]:
+        print("Yay! Ghostbusters, but not the right place")
+    else:
+        print("Boo! We want ghostbusters")
