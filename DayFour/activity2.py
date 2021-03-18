@@ -16,4 +16,4 @@ for film in films:
     elif check_film(film) == True and film != films[2]:
         print("Yay! Ghostbusters, but not the right place")
     else:
-        print("Boo! We want ghostbusters")
+        print("Boo! We want Ghostbusters")
