@@ -1,6 +1,8 @@
 from os import system
 from random import randint
 
+grid = range(1, 12)
+
 def is_section(num):
     if(num % 4) == 0:
         return True
@@ -13,7 +15,7 @@ horizontal = "-------|-------|-------"
 def clear():
     system("clear")
 
-def drawGrid(grid, squares):
+def drawGrid(squares):
     clear()
     print("Simple Noughts and Crosses Game, \n")
     nums = [1,2,3]
