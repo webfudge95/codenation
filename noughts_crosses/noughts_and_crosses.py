@@ -1,8 +1,6 @@
-from os import system
 from random import randint
 import drawgrid as dg
 
-grid = range(1, 12)
 squares = [" "," "," "," "," "," "," "," "," "]
 
 def checkRange(cell1, cell2, cell3):
@@ -65,22 +63,22 @@ def userPlace():
                 userplace = int(input("\nChoose a number between 1 and 9: ")) - 1
                 break
             except:
-                dg.drawGrid(grid, squares)
+                dg.drawGrid(squares)
                 print("\nPlease choose an appropriate number!")
 
         if userplace > 9 or "-" in str(userplace):
-            dg.drawGrid(grid, squares)
+            dg.drawGrid(squares)
             print("\nPlease choose an appropriate number!")
         else:
             if squares[userplace] == " ":
                 squares[userplace] = "x"
                 check = False
             else:
-                dg.drawGrid(grid, squares)
+                dg.drawGrid(squares)
                 print("\nSpot Occupied!")
 
 def game():
-    dg.drawGrid(grid, squares)
+    dg.drawGrid(squares)
     player = 1
     computer = 2
     order = randint(1,2)
@@ -88,12 +86,12 @@ def game():
 
     while True:
         userPlace()
-        dg.drawGrid(grid, squares)
+        dg.drawGrid(squares)
         if checkWin() == True:
             print("\nWinner is Player")
             exit()
         computerPlace()
-        dg.drawGrid(grid, squares)
+        dg.drawGrid(squares)
         if checkWin() == True:
             print("\nWinner is Computer")
             exit()
