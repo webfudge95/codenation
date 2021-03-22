@@ -18,10 +18,9 @@ rooms = [
 locked = [0,0,0,0,0,0,1]
 lives = 3
 keys = 0
-door = "closed"
 
 '''
-    Our individual room logic goes here.
+    Our individual room logic go here.
     Room function must return True or False depending if the user passes or fails the room.
 '''
 
@@ -124,29 +123,32 @@ def grandHall(lives, keys, locked):
 
 #    Main game logic
 
-print("Welcome to Dracula's Castle")
-print("The door creeks as you enter the Grand Hall")
-while door == "closed":
-    grandHall(lives, keys, locked)
-    room, locked = enterRoom(getChoice(locked), keys, locked)
-    if room == 1:
-        print("You gained a key")
-        keys += 1
-        sleep(3)
-    elif room == 2:
-        print("You unlock the door, it creaks open slowly")
-        door = "open"
-    elif room == 3:
-        print("You haven't enough keys!")
-        sleep(3)
-    else:
-        print("You Lost a life")
-        lives = lives - 1
-        sleep(3)
-    if lives == 0:
-        print("You have died..")
-        exit()    
-    clear()
-print("You enter the final room and find the treasure 💰💰💰")
+def game(lives, keys, locked):
+    print("Welcome to Dracula's Castle")
+    print("The door creeks as you enter the Grand Hall")
+    door = "closed"
+    while door == "closed":
+        grandHall(lives, keys, locked)
+        room, locked = enterRoom(getChoice(locked), keys, locked)
+        if room == 1:
+            print("You gained a key")
+            keys += 1
+            sleep(3)
+        elif room == 2:
+            print("You unlock the door, it creaks open slowly")
+            door = "open"
+        elif room == 3:
+            print("You haven't enough keys!")
+            sleep(3)
+        else:
+            print("You Lost a life")
+            lives = lives - 1
+            sleep(3)
+        if lives == 0:
+            print("You have died..")
+            exit()    
+        clear()
+    print("You enter the final room and find the treasure 💰💰💰")
 
+game(lives, keys, locked)
     
