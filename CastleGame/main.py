@@ -1,5 +1,6 @@
 from os import system
 from time import sleep
+from dungeon import nac
 
 #   Defining rooms
 
@@ -25,8 +26,7 @@ keys = 0
 '''
 
 def dungeon():
-    print("You're in the Dungeon")
-    return True
+    return nac()
 def armoury():
     print("You're in the Armoury")
     return True
@@ -108,15 +108,16 @@ def getChoice(locked):
         choice = int(input("Which room will you enter? (Type Number): "))
     check = checkLocked(choice, locked)
     while check == True:
-        choice = int(input("That room is locked!\nWhich room will you enter? (Type Number): "))
+        choice = int(input("That room is locked!"
+",Which room will you enter? (Type Number): "))
         check = checkLocked(choice, locked)
     return choice
 
 #   Defining user hub (Grand Hall)
 
 def grandHall(lives, keys, locked):
-    print("Lives: ", "♥ " * lives)
-    print("Keys: ", "🔑" * keys)
+    print("Lives: "," ","♥ " * lives)
+    print("Keys: "," ","🔑" * keys)
     print("You are in the grand hall, 6 Doors lie in front of you.")
     for room in range(7):
         print(f"{room + 1}. {rooms[room]} {printPadlock(locked[room])}")
